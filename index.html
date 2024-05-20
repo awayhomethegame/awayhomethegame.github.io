@@ -1,232 +1,105 @@
-<!doctype html>
-<html lang="en-us">
-
+<!DOCTYPE html>
+<html  >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Away / Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-72x72.png" sizes="72x72" type="image/png" />
-  <link rel="icon" href="icons/icon-96x96.png" sizes="96x96" type="image/png" />
-  <link rel="icon" href="icons/icon-128x128.png" sizes="128x128" type="image/png" />
-  <link rel="icon" href="icons/icon-144x144.png" sizes="144x144" type="image/png" />
-  <link rel="icon" href="icons/icon-152x152.png" sizes="152x152" type="image/png" />
-  <link rel="icon" href="icons/icon-192x192.png" sizes="192x192" type="image/png" />
-  <link rel="icon" href="icons/icon-384x384.png" sizes="384x384" type="image/png" />
-  <link rel="icon" href="icons/icon-512x512.png" sizes="512x512" type="image/png" />
-  <!-- ios support -->
-  <link rel="apple-touch-icon" href="icons/icon-72x72.png" sizes="72x72" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-96x96.png" sizes="96x96" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-128x128.png" sizes="128x128" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-144x144.png" sizes="144x144" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-152x152.png" sizes="152x152" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-192x192.png" sizes="192x192" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-384x384.png" sizes="384x384" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-512x512.png" sizes="512x512" type="image/png" />
+  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="assets/images/index-meta.png">
+  <meta property="og:image" content="assets/images/index-meta.png">
+  <meta name="twitter:title" content="away/home - coming soon to you!">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo-min1-160x160.png" type="image/x-icon">
+  <meta name="description" content="away/home is an educational serious game aimed at combatting misinformation and disinformation about housing for Ukrainian refugees. It is soon to be launched - so stay tuned!">
+  
+  
+  <title>away/home - coming soon to you!</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link href="assets/fonts/style.css" rel="stylesheet">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=GxVcF2"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=GxVcF2" type="text/css">
 
-  <meta name="theme-color" content="#000" />
-
-  <style>
-    html {
-      background: #444;
-      font-family: sans-serif;
-    }
-
-    body, html {
-      overscroll-behavior: none;
-    }
-
-    #canvas, #overlayDiv {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-
-      width: 100%;
-      height: 100%;
-
-      border: 0 none;
-    }
-
-    #canvas {
-      background: #000;
-    }
-
-    .visible {
-      visibility: visible;
-      opacity: 1.0;
-      transition: opacity .1s linear;
-    }
-
-    .hidden {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s .25s, opacity .25s linear;
-    }
-
-    #statusDiv, #inputDiv {
-      background: rgba(0, 0, 0, 0.75);
-      width: 50%;
-      margin: auto;
-      min-width: 340px;
-      padding: 10px;
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-
-      border-radius: 0 0 5px 5px;
-    }
-
-    #statusTextDiv {
-      overflow: auto;
-      max-height: 40vh;
-      color: #ccc;
-      font-size: 14px;
-    }
-
-    #statusProgress {
-      display: none;
-      width: 100%;
-    }
-
-    #inputDiv {
-      width: 65%;
-      padding-left: 10px;
-      padding-right: 20px;
-    }
-
-    #inputPrompt {
-      color: #eee;
-      font-size: 150%;
-      margin-bottom: 1em;
-      margin-top: 1em;
-
-    }
-
-    #inputText {
-      width: 100%;
-      font-size: 175%;
-      padding: 5px;
-      background: inherit;
-      color: #eee;
-    }
-
-    #inputText:focus {
-      color: #ffffff;
-    }
-
-    #ContextContainer {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      color: white;
-    }
-
-    #ContextContainer.shown {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 0px 0px 5px 0px;
-    }
-
-    #ContextButton {
-      text-decoration: none;
-      color: lightgrey;
-      font-size: xx-large;
-      cursor: pointer;
-      user-select: none;
-      -moz-user-select: none;
-      padding: 10px 10px;
-      opacity: .75;
-    }
-
-    #ContextButton:focus {
-      outline: none;
-      color: #ffffff;
-      opacity: 1.0;
-    }
-
-    #ContextMenu a {
-      text-decoration: none;
-      color: lightgrey;
-      background: #444;
-      height: 48px;
-      width: 250px;
-      border-radius: 5px;
-      border: 1px solid lightgrey;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 5px 5px;
-      opacity: 1.0;
-    }
-
-    #ContextMenu a:hover {
-      text-decoration: none;
-      background: #666666;
-      color: #ffffff
-    }
-
-    #presplash {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-  </style>
-
+  
+  
+  
 </head>
-
 <body>
-  <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
-  <div id="overlayDiv"></div>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-uaKQ7lPsKw" once="menu" id="menu2-4">
+    
+    <nav class="navbar navbar-dropdown navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo-min1-160x160.png" alt="away/home logo" style="height: 6.9rem;">
+                    </a>
+                </span>
+                
+            </div>
+            
+            
+        </div>
+    </nav>
+</section>
 
-  <img id="presplash" src="web-presplash.jpg">
-
-  <div id="ContextContainer">
-    <a id="ContextButton">&#8801;</a><br />
-    <div id="ContextMenu" style="display: none;">
-      <input id="ID_SavegamesImport" type="file" onchange="onSavegamesImport(this)" accept="application/zip"
-        style=display:none></input>
-      <a href="javascript:document.getElementById('ID_SavegamesImport').click();">Import Saves</a>
-      <a href="javascript:onSavegamesExport();">Export Saves</a>
-      <a href="javascript:FSDownload('/log.txt', 'text/plain');">Download Log</a>
-      <a href="https://www.renpy.org/" target="_blank">
-          Powered by Ren'Py
-      </a>
-      </span>
+<section data-bs-version="5.1" class="countdown3 cid-uaKM6UHqBY mbr-fullscreen" id="countdown3-0">
+    
+    
+    
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(254, 252, 247);">
     </div>
-  </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h3 class="mbr-section-title mb-5 align-center mbr-fonts-style display-2"><strong>comin</strong><strong>g soon!</strong></h3>
+                <h4 class="mbr-section-subtitle mb-5 align-center mbr-fonts-style display-7">
+                    home is just one step away.</h4>
+                <div class="countdown-cont align-center mb-5">
+                    <div class="daysCountdown col-xs-3 col-sm-3 col-md-3" title="days"></div>
+                    <div class="hoursCountdown col-xs-3 col-sm-3 col-md-3" title="hours"></div>
+                    <div class="minutesCountdown col-xs-3 col-sm-3 col-md-3" title="minutes"></div>
+                    <div class="secondsCountdown col-xs-3 col-sm-3 col-md-3" title="seconds"></div>
+                    <div class="countdown" data-due-date="2024/05/23"></div>
+                </div>
+                <p class="mbr-text mb-5 align-center mbr-fonts-style display-7">follow us online to find out when we launch!</p>
+                <div class="icons-menu row justify-content-center display-7">
+                    
+                    
+                    
+                    
+                <div class="soc-item col-auto">
+                        <a href="https://instagram.com/awayhome.thegame" target="_blank" class="social__link">
+                            <span class="mbr-iconfont socicon-instagram socicon"></span>
+                        </a>
+                    </div></div>
+                
+            </div>
+        </div>
+    </div>
+</section>
 
-  <div id="statusDiv" class="hidden">
-    <div id="statusTextDiv"></div>
-    <progress id="statusProgress" value="0" max="100"></progress>
-  </div>
+<section data-bs-version="5.1" class="footer7 cid-sFHu2wLoQp" once="footers" id="footer7-9">
 
-  <div id="inputDiv" class="hidden">
-    <form id="inputForm">
-      <div id="inputPrompt"></div>
-      <input id="inputText" type="text">
-    </form>
-  </div>
+    
 
-  <script>
-      // Register the service worker.
-      if (navigator.serviceWorker) {
-          if (!navigator.serviceWorker.controller) {
-              navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'all' });
-          }
-      }
-  </script>
-  <script src="renpy-pre.js"></script>
-  <script async type="text/javascript" src="renpy.js"></script>
+    
+
+    <div class="container">
+        <div class="row align-center mbr-white">
+            <div class="col-12">
+                <p class="mbr-text mb-0 mbr-fonts-style display-7">
+                    © 2024 away/home - all rights reserved</p>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/3199737" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/drag-drop-website-builder.html">Drag & Drop Website Builder</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/countdown/countdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
 </body>
-
 </html>
-
-
